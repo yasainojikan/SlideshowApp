@@ -12,6 +12,12 @@
 		FA3AC7C722229E6D0093AD51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7C522229E6D0093AD51 /* Main.storyboard */; };
 		FA3AC7C922229E6F0093AD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7C822229E6F0093AD51 /* Assets.xcassets */; };
 		FA3AC7CC22229E6F0093AD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7CA22229E6F0093AD51 /* LaunchScreen.storyboard */; };
+		FA3AC7D82222B1B50093AD51 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7D32222B1B40093AD51 /* 2.jpg */; };
+		FA3AC7D92222B1B50093AD51 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7D42222B1B40093AD51 /* 5.jpg */; };
+		FA3AC7DA2222B1B50093AD51 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7D52222B1B40093AD51 /* 3.jpg */; };
+		FA3AC7DB2222B1B50093AD51 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7D62222B1B40093AD51 /* 1.jpg */; };
+		FA3AC7DC2222B1B50093AD51 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3AC7D72222B1B40093AD51 /* 4.jpg */; };
+		FAF8BEDA2225697300F89CE9 /* ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8BED92225697300F89CE9 /* ZoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		FA3AC7C822229E6F0093AD51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA3AC7CB22229E6F0093AD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA3AC7CD22229E6F0093AD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3AC7D32222B1B40093AD51 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = SOURCE_ROOT; };
+		FA3AC7D42222B1B40093AD51 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = SOURCE_ROOT; };
+		FA3AC7D52222B1B40093AD51 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = SOURCE_ROOT; };
+		FA3AC7D62222B1B40093AD51 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = SOURCE_ROOT; };
+		FA3AC7D72222B1B40093AD51 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = SOURCE_ROOT; };
+		FAF8BED92225697300F89CE9 /* ZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +66,18 @@
 		FA3AC7C022229E6D0093AD51 /* SlideshowApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA3AC7D62222B1B40093AD51 /* 1.jpg */,
+				FA3AC7D32222B1B40093AD51 /* 2.jpg */,
+				FA3AC7D52222B1B40093AD51 /* 3.jpg */,
+				FA3AC7D72222B1B40093AD51 /* 4.jpg */,
+				FA3AC7D42222B1B40093AD51 /* 5.jpg */,
 				FA3AC7C122229E6D0093AD51 /* AppDelegate.swift */,
 				FA3AC7C322229E6D0093AD51 /* ViewController.swift */,
 				FA3AC7C522229E6D0093AD51 /* Main.storyboard */,
 				FA3AC7C822229E6F0093AD51 /* Assets.xcassets */,
 				FA3AC7CA22229E6F0093AD51 /* LaunchScreen.storyboard */,
 				FA3AC7CD22229E6F0093AD51 /* Info.plist */,
+				FAF8BED92225697300F89CE9 /* ZoomViewController.swift */,
 			);
 			path = SlideshowApp;
 			sourceTree = "<group>";
@@ -123,7 +141,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3AC7CC22229E6F0093AD51 /* LaunchScreen.storyboard in Resources */,
+				FA3AC7D92222B1B50093AD51 /* 5.jpg in Resources */,
 				FA3AC7C922229E6F0093AD51 /* Assets.xcassets in Resources */,
+				FA3AC7D82222B1B50093AD51 /* 2.jpg in Resources */,
+				FA3AC7DB2222B1B50093AD51 /* 1.jpg in Resources */,
+				FA3AC7DC2222B1B50093AD51 /* 4.jpg in Resources */,
+				FA3AC7DA2222B1B50093AD51 /* 3.jpg in Resources */,
 				FA3AC7C722229E6D0093AD51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3AC7C422229E6D0093AD51 /* ViewController.swift in Sources */,
+				FAF8BEDA2225697300F89CE9 /* ZoomViewController.swift in Sources */,
 				FA3AC7C222229E6D0093AD51 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
