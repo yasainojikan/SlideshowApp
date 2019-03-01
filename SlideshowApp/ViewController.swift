@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     
     @IBAction func tapToZoom(_ sender: Any) {
         performSegue(withIdentifier: "zoom", sender: nil)
+        if timer != nil{
+            timer.invalidate()
+            timer = nil
+            startOrStop.setTitle("再生", for: .normal)
+        }
            }
     
     @IBAction func backToViewController(_ segue: UIStoryboardSegue) {
@@ -55,40 +60,14 @@ class ViewController: UIViewController {
         imageView.image = slideImage
     }
     
-    //画像を拡大したものを変数に格納する
-    func cropThumbnailImage(image :UIImage, w:CGFloat, h:CGFloat) ->UIImage
-    {
-        // リサイズ処理
-        let origRef    = image.cgImage
-        let origWidth  = CGFloat(origRef!.width)
-        let origHeight = CGFloat(origRef!.height)
-        var resizeWidth:CGFloat = 0, resizeHeight:CGFloat = 0
-        
-        if (origWidth < origHeight) {
-            resizeWidth = w
-            resizeHeight = origHeight * resizeWidth / origWidth
-        } else {
-            resizeHeight = h
-            resizeWidth = origWidth * resizeHeight / origHeight
-        }
-        
-        let resizeSize = CGSize.init(width: CGFloat(resizeWidth), height: CGFloat(resizeHeight))
-        
-        UIGraphicsBeginImageContext(resizeSize)
-        
-        image.draw(in: CGRect.init(x: 0, y: 0, width: CGFloat(resizeWidth), height: CGFloat(resizeHeight)))
-        
-        let resizeImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        // 切り抜き処理
-        
-        let cropRect  = CGRect.init(x: CGFloat((resizeWidth - w) / 2), y: CGFloat((resizeHeight - h) / 2), width: CGFloat(w), height: CGFloat(h))
-        let cropRef   = resizeImage!.cgImage!.cropping(to: cropRect)
-        let cropImage = UIImage(cgImage: cropRef!)
-        
-        return cropImage
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // segueから遷移先のZoomViewControllerを取得する
+        let zoomViewController:ZoomViewController = segue.destination as! ZoomViewController
+        // 遷移先のzoomViewControllerで宣言しているzoomedSlideに値を代入して渡す
+        zoomViewController.zoomedSlide = imageView.image
+        //この書き方でいいのか？
     }
+   
     
     // updateTimerの定義　呼び出されるたびに何をするか記述
     @objc func updateTimer(_ timer: Timer) {
@@ -96,7 +75,7 @@ class ViewController: UIViewController {
         displayImage()
     }
     
-//ボタンを接続していく
+    //ボタンを接続していく
     @IBAction func next(_ sender: Any) {
         //dispImageNoをプラス1してimageView.imageを呼び出す
         //timerがnilの時だけ押せる

@@ -12,17 +12,18 @@ class ZoomViewController: UIViewController {
 
     @IBOutlet weak var zoomedSlideImage: UIImageView!
     
+    var zoomedSlide = UIImage(named: "1.jpg")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        
+        let result = zoomedSlide
+        zoomedSlideImage.image = result
         
     }
     
-
     /*
     // MARK: - Navigation
 
