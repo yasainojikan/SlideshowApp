@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     
     @IBAction func tapToZoom(_ sender: Any) {
         performSegue(withIdentifier: "zoom", sender: nil)
+        
+        //タイマーが動いている時を区別する。停止ボタンを再生ボタンに切り替えておく。
+        //もっといい書き方がある気がする。
         if timer != nil{
             timer.invalidate()
             timer = nil
@@ -55,7 +58,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+        //初期表示の定義
         let slideImage = UIImage(named: "1.jpg")
         imageView.image = slideImage
     }
@@ -65,7 +68,6 @@ class ViewController: UIViewController {
         let zoomViewController:ZoomViewController = segue.destination as! ZoomViewController
         // 遷移先のzoomViewControllerで宣言しているzoomedSlideに値を代入して渡す
         zoomViewController.zoomedSlide = imageView.image
-        //この書き方でいいのか？
     }
    
     
@@ -76,6 +78,7 @@ class ViewController: UIViewController {
     }
     
     //ボタンを接続していく
+    //進むボタン
     @IBAction func next(_ sender: Any) {
         //dispImageNoをプラス1してimageView.imageを呼び出す
         //timerがnilの時だけ押せる
@@ -85,6 +88,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //戻るボタン
     @IBAction func previous(_ sender: Any) {
         if timer == nil {
         dispImageNo -= 1
@@ -92,6 +96,8 @@ class ViewController: UIViewController {
         }
     }
     
+    //再生・停止切り替えボタン
+    //もっといい書き方がある気がする。
     @IBOutlet weak var startOrStop: UIButton!
     @IBAction func startOrStop(_ sender: Any) {
         if timer == nil {
@@ -107,7 +113,6 @@ class ViewController: UIViewController {
             displayImage()
             startOrStop.setTitle("再生", for: .normal)
         }
-    //もっとスマートな書き方はないか聞く
     }
     
     
