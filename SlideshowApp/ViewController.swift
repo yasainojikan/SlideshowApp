@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func tapToZoom(_ sender: Any) {
@@ -21,8 +21,11 @@ class ViewController: UIViewController {
             timer.invalidate()
             timer = nil
             startOrStop.setTitle("再生", for: .normal)
+            
+            nextButtenLabel.isEnabled = true
+            backButtenLabel.isEnabled = true
         }
-           }
+    }
     
     @IBAction func backToViewController(_ segue: UIStoryboardSegue) {
     }
@@ -34,13 +37,13 @@ class ViewController: UIViewController {
     func displayImage() {
         
         let imageNameArray = [
-        "1.jpg",
-        "2.jpg",
-        "3.jpg",
-        "4.jpg",
-        "5.jpg",
-    ]
-    
+            "1.jpg",
+            "2.jpg",
+            "3.jpg",
+            "4.jpg",
+            "5.jpg",
+            ]
+        
         if dispImageNo < 0 {
             dispImageNo = 4
         }
@@ -54,7 +57,7 @@ class ViewController: UIViewController {
         imageView.image = slideImage
     }
     
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -69,7 +72,7 @@ class ViewController: UIViewController {
         // 遷移先のzoomViewControllerで宣言しているzoomedSlideに値を代入して渡す
         zoomViewController.zoomedSlide = imageView.image
     }
-   
+    
     
     // updateTimerの定義　呼び出されるたびに何をするか記述
     @objc func updateTimer(_ timer: Timer) {
@@ -79,6 +82,10 @@ class ViewController: UIViewController {
     
     //ボタンを接続していく
     //進むボタン
+    
+    @IBOutlet weak var nextButtenLabel: UIButton!
+    @IBOutlet weak var backButtenLabel: UIButton!
+    
     @IBAction func next(_ sender: Any) {
         //dispImageNoをプラス1してimageView.imageを呼び出す
         //timerがnilの時だけ押せる
@@ -91,8 +98,8 @@ class ViewController: UIViewController {
     //戻るボタン
     @IBAction func previous(_ sender: Any) {
         if timer == nil {
-        dispImageNo -= 1
-        displayImage()
+            dispImageNo -= 1
+            displayImage()
         }
     }
     
@@ -101,17 +108,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var startOrStop: UIButton!
     @IBAction func startOrStop(_ sender: Any) {
         if timer == nil {
-        //timerが動き出す。2秒ごとに、updateTimerを呼び出し続ける
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer(_: )), userInfo: nil, repeats: true)
+            //timerが動き出す。2秒ごとに、updateTimerを呼び出し続ける
+            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer(_: )), userInfo: nil, repeats: true)
             startOrStop.setTitle("停止", for: .normal)
+            
+            nextButtenLabel.isEnabled = false
+            backButtenLabel.isEnabled = false
         }
-        
+            
         else {
             //timerを止めて、nilで上書きする
             timer.invalidate()
             timer = nil
             displayImage()
             startOrStop.setTitle("再生", for: .normal)
+            
+            nextButtenLabel.isEnabled = true
+            backButtenLabel.isEnabled = true
         }
     }
     

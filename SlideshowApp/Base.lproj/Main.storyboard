@@ -107,7 +107,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backButtenLabel" destination="QIR-Ra-cLt" id="yCD-Tz-V1A"/>
                         <outlet property="imageView" destination="9XU-yi-vjO" id="2Eg-kR-egC"/>
+                        <outlet property="nextButtenLabel" destination="c8m-br-Gd5" id="sSf-vE-45V"/>
                         <outlet property="startOrStop" destination="kbL-qW-ayc" id="rPw-f2-YgV"/>
                         <segue destination="bSf-pZ-haY" kind="show" identifier="zoom" id="VM7-Dz-Aoj"/>
                     </connections>
